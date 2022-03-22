@@ -71,7 +71,7 @@ export default Cosmetics;
 
 // Case 2: Generate Fake Data using JSON generator and Fetch from a created JSON file in Public Folder......
 
-/*
+
 const Cosmetics = () => {
 
     const [cosmetics, setCosmetics] = useState([])
@@ -97,12 +97,13 @@ const Cosmetics = () => {
 };
 
 export default Cosmetics;
-*/
 
 
 
-// Case 3: use mockApi or fake API link and data Generators to fetch fake data....
 
+// Case 3: use mockApi, Beeceptor or fake API link and data Generators to fetch fake data....But the problem is you cannot request or Call the api more than 5 times a day unless you use premium subs...So we are going to use our own Case 2.....
+
+/*
 const Cosmetics = () => {
 
     const [cosmetics, setCosmetics] = useState([])
@@ -127,8 +128,9 @@ const Cosmetics = () => {
     );
 };
 
-export default Cosmetics;
 
+export default Cosmetics;
+*/
 
 
 

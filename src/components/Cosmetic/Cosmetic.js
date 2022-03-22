@@ -3,7 +3,7 @@ import './Cosmetic.css'
 
 const Cosmetic = (props) => {
 
-    const { name, price, id } = props.cosmetic
+
 
 
     // Scenario 1: When we try to pass parameters Like this in JSX code it automatically calls the function addToCart() because it gets compiled to JS......
@@ -28,13 +28,27 @@ const Cosmetic = (props) => {
     // Scenario 2: To solve this Problem we are going to use a wrapper Arrow function in Event Handler To Pass Parameters to the Main Targeted Function inside the Wrapper function.......
 
 
+    const { name, price, id } = props.cosmetic;
+
     // option 1
-    const addToCartWithParameter = () => {
-        addToCart(id)
-    }
+    // const addToCartWithParameter = () => {
+    //     addToCart(id)
+    // }
+
+
 
     const addToCart = (id) => {
-        console.log('Item id', id)
+        // console.log('Item id', id)
+        const quantity = localStorage.getItem(id);
+        // console.log(quantity);
+        if (quantity) {
+            // const newQuant = quantity + 1;
+            const newQuant = parseInt(quantity) + 1;
+            localStorage.setItem(id, newQuant)
+        }
+        else {
+            localStorage.setItem(id, 1)
+        }
     }
 
 
