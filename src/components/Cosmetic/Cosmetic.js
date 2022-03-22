@@ -1,4 +1,5 @@
 import React from 'react';
+import { removeFromCart } from '../../utilities/fake-database';
 import './Cosmetic.css'
 
 const Cosmetic = (props) => {
@@ -68,9 +69,7 @@ const Cosmetic = (props) => {
         if (storedCart) {
             shoppingCart = JSON.parse(storedCart)
         }
-        else {
-            shoppingCart = {};
-        }
+
 
 
 
@@ -86,14 +85,7 @@ const Cosmetic = (props) => {
 
 
         localStorage.setItem('shopping-cart', JSON.stringify(shoppingCart))
-
-
-
-
-
     }
-
-
 
 
 
@@ -107,6 +99,7 @@ const Cosmetic = (props) => {
             <h4>Product ID: {id}</h4>
             {/* <button onClick={addToCartWithParameter}>Add to Cart</button> */}
             <button onClick={() => addToCart(id)}>Add to Cart</button>
+            <button onClick={() => removeFromCart(id)}>Remove From Cart</button>
         </div>
     );
 };

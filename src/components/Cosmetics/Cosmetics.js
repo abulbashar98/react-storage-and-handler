@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import { totalPrice } from '../../utilities/fake-database';
 import Cosmetic from '../Cosmetic/Cosmetic';
+import './Cosmetics.css'
 // import { add, diff } from '../../utilities/calculate';
 // import add from '../../utilities/calculate';
 
@@ -83,9 +85,13 @@ const Cosmetics = () => {
     }, [])
 
 
+    const total = totalPrice(cosmetics);
+    console.log(total);
+
     return (
         <div>
             <h1>Cosmetics Store, Bikrompur Plaza</h1>
+            <p>Total price: {total}</p>
 
             {
                 cosmetics.map(cosmetic => <Cosmetic cosmetic={cosmetic}
