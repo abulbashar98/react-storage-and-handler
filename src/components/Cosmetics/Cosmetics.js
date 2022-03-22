@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Cosmetic from '../Cosmetic/Cosmetic';
 // import { add, diff } from '../../utilities/calculate';
 // import add from '../../utilities/calculate';
 
-// Part 1: Es6 modules
+/*--------------------------*\
+  Part: 1      Es6 Modules
+  \*--------------------------*/
 
 /*
 const Cosmetics = () => {
@@ -22,10 +24,20 @@ const Cosmetics = () => {
 */
 
 
-// Part 2: Create and Load Fake Data
+
+
+
+/*------------------------------------*\
+  Part: 2   Create and Load Fake Data
+\*-------------------------------------*/
+
+
+
 
 // case 1: create simple array of objects....
 
+
+/*
 const Cosmetics = () => {
 
     const cosmetics = [
@@ -51,3 +63,72 @@ const Cosmetics = () => {
 };
 
 export default Cosmetics;
+*/
+
+
+
+
+
+// Case 2: Generate Fake Data using JSON generator and Fetch from a created JSON file in Public Folder......
+
+/*
+const Cosmetics = () => {
+
+    const [cosmetics, setCosmetics] = useState([])
+
+    useEffect(() => {
+        fetch('data.json')
+            .then(response => response.json())
+            .then(data => setCosmetics(data))
+    }, [])
+
+
+    return (
+        <div>
+            <h1>Cosmetics Store, Bikrompur Plaza</h1>
+
+            {
+                cosmetics.map(cosmetic => <Cosmetic cosmetic={cosmetic}
+                    key={cosmetic.id}></Cosmetic>)
+            }
+
+        </div>
+    );
+};
+
+export default Cosmetics;
+*/
+
+
+
+// Case 3: use mockApi or fake API link and data Generators to fetch fake data....
+
+const Cosmetics = () => {
+
+    const [cosmetics, setCosmetics] = useState([])
+
+    useEffect(() => {
+        fetch('https://cosmetics.free.beeceptor.com')
+            .then(response => response.json())
+            .then(data => setCosmetics(data))
+    }, [])
+
+
+    return (
+        <div>
+            <h1>Cosmetics Store, Bikrompur Plaza</h1>
+
+            {
+                cosmetics.map(cosmetic => <Cosmetic cosmetic={cosmetic}
+                    key={cosmetic.id}></Cosmetic>)
+            }
+
+        </div>
+    );
+};
+
+export default Cosmetics;
+
+
+
+
