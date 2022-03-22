@@ -37,19 +37,65 @@ const Cosmetic = (props) => {
 
 
 
+
+    // Add Single Item key, and Change value as Quantity.....
+    /*
     const addToCart = (id) => {
-        // console.log('Item id', id)
-        const quantity = localStorage.getItem(id);
-        // console.log(quantity);
-        if (quantity) {
-            // const newQuant = quantity + 1;
-            const newQuant = parseInt(quantity) + 1;
-            localStorage.setItem(id, newQuant)
+      // console.log('Item id', id)
+      const quantity = localStorage.getItem(id);
+      // console.log(quantity);
+      if (quantity) {
+          // const newQuant = quantity + 1;
+          const newQuant = parseInt(quantity) + 1;
+          localStorage.setItem(id, newQuant)
+      }
+      else {
+          localStorage.setItem(id, 1)
+      }
+  }
+*/
+
+
+    // Add multiple Items in Local Storage as Objects.... And Change their Values like Quantities on Event.....
+
+    const addToCart = id => {
+        let shoppingCart = {};
+        // localStorage.setItem('shopping-cart', JSON.stringify(shoppingCart))
+
+
+        // get cart and add More Items in them if exists....
+        const storedCart = localStorage.getItem('shopping-cart')
+        if (storedCart) {
+            shoppingCart = JSON.parse(storedCart)
         }
         else {
-            localStorage.setItem(id, 1)
+            shoppingCart = {};
         }
+
+
+
+        // Check for Value existence in Shopping cart object.... if exists change the value/quantity by +1...Else the the value/quantity to 1;
+        const quantity = shoppingCart[id];
+        if (quantity) {
+            const newQuantity = quantity + 1;
+            shoppingCart[id] = newQuantity;
+        }
+        else {
+            shoppingCart[id] = 1;
+        }
+
+
+        localStorage.setItem('shopping-cart', JSON.stringify(shoppingCart))
+
+
+
+
+
     }
+
+
+
+
 
 
     // option 2: write an anonymous Arrow function as Wrapper in Handler and target function inside it...... In that wrapper only runs when event occurs
