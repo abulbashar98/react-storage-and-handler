@@ -1,0 +1,10 @@
+
+
+.product{
+    background: black;
+    color: skyblue;
+    border: 2px solid skyblue;
+    margin: 20px;
+    border-radius: 20px;
+    padding: 15px;
+}
