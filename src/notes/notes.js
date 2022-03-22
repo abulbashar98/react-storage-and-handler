@@ -28,4 +28,7 @@
    2. but when you export multiple functions or Hooks from a single file you export them as object Values.......
    e.g  export { add, diff, multiply };
 
+   3. Can export a function with a different name..... using as {name}....
+      e.g getTotalPrice as totalPrice    ref: fake-database.js
+
  */

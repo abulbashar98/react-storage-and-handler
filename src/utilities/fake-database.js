@@ -44,7 +44,7 @@ console.log(sum);
 
 const numbers = [12, 43, 54, 23, 54, 56];
 
-const sumReducerForNumbers = (previous, current) => previous + current;
+const sumReducerForNumbers = (previousValue, currentValue) => previousValue + currentValue;
 const total = numbers.reduce(sumReducerForNumbers, 0)
 // console.log(total);
 
@@ -60,14 +60,16 @@ const products = [
     { name: 'laptop', id: 1, price: 520 }
 ]
 
-const productsPriceReducer = (previous, current) => previous + current.price;
-
+// const productsPriceReducer = (previous, current) => previous + current.price;
 // const totalProductPrice = products.reduce(productsPriceReducer, 0)
 // console.log(totalProductPrice);
 
 // shortCut
 const getTotalPrice = products => {
-    return products.reduce((previous, current) => previous + current.price, 0);
+    // return products.reduce((previous, current) => previous + current.price, 0);
+    const reducer = (previous, current) => previous + current.price;
+    const total = products.reduce(reducer, 0);
+    return total;
 }
 
 
